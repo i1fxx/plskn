@@ -1,30 +1,44 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+	<nav-bar />
+	<router-view></router-view>
+	<footer-block />
 </template>
+<script lang="ts">
+import NavBar from '@/components/NavBar.vue';
+import FooterBlock from '@/components/FooterBlock.vue';
+import { INote } from '@/types/index';
+import { defineComponent } from 'vue';
+export default defineComponent({
+	components: {
+		NavBar,
+		FooterBlock,
+	},
+	data() {
+		return {
+			notes: <INote[]>[
+				{ id: 1, title: 'Hello world!', body: 'Something' },
+				{ id: 2, title: 'Hello world! 1', body: 'Something 1' },
+				{ id: 3, title: 'Hello world! 2', body: 'Something 2' },
+			],
+		};
+	},
+	methods: {
+		newNote(note: INote) {
+			this.notes.push(note);
+		},
+		deleteNote(note: INote) {
+			let removeIndex = this.notes.findIndex((x) => x.id === note.id);
+			if (removeIndex != -1) this.notes.splice(removeIndex, 1);
+		},
+	},
+	mounted() {},
+});
+</script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 </style>
