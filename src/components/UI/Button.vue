@@ -1,8 +1,15 @@
 <template>
-	<button class="btn" :class="{ linkButton: type === 'link' }">
-		<router-link to="/">
+	<button
+		:class="{
+			linkButton: type === 'link',
+			secondaryButton: type === 'secondary',
+			iconButton: type === 'icon',
+		}"
+	>
+		<router-link v-if="type === 'link'" :to="this.to">
 			<slot></slot>
 		</router-link>
+		<slot v-else></slot>
 	</button>
 </template>
 <script lang="ts">
@@ -13,19 +20,21 @@ export default {
 			type: String,
 			required: false,
 		},
-		type: { type: String, required: true }, //type : link, primary, secondary
+		type: { type: String, required: true }, //type : link, primary, secondary, icon
 	},
 };
 </script>
 <style scoped>
-.btn {
-	margin: 10px;
-	padding: 8px;
-	font-size: 0.85rem;
-	font-weight: bold;
+.linkButton,
+.secondaryButton {
+	font-size: 1rem;
+	font-weight: 600;
 	cursor: pointer;
+	font-family: 'Montserrat';
 }
-.linkButton {
+.linkButton,
+.secondaryButton,
+.iconButton {
 	border: none;
 	background: none;
 }
@@ -35,5 +44,14 @@ export default {
 }
 .linkButton > a:hover {
 	border-bottom: 2.2px solid black;
+}
+.linkButton,
+.secondaryButton,
+.iconButton {
+	margin: 10px;
+	padding: 8px;
+}
+.iconButton:hover {
+	cursor: pointer;
 }
 </style>

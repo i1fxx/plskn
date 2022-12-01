@@ -1,0 +1,86 @@
+<template>
+	<div class="shareBlock">
+		<share-icon :size="14" class="headerIcon" />
+		<ui-header :size="4"> Поделиться </ui-header>
+		<ul class="shareList">
+			<li v-for="share of shareList">
+				<ShareNetwork
+					:network="share.name"
+					:url="this.shareURL"
+					:title="this.$siteName"
+					:description="this.shareDescription"
+					:quote="this.shareQuote"
+					:hashtags="this.shareHashtags"
+				>
+					<ui-button type="icon">
+						<span v-if="share.name === 'telegram'">
+							<brand-telegram-icon :size="19" />
+						</span>
+						<span v-if="share.name === 'whatsapp'">
+							<brand-whatsapp-icon :size="19" />
+						</span>
+						<span v-if="share.name === 'twitter'">
+							<brand-twitter-icon :size="19" />
+						</span>
+					</ui-button>
+				</ShareNetwork>
+			</li>
+		</ul>
+	</div>
+</template>
+<script lang="ts">
+import {
+	ShareIcon,
+	BrandTelegramIcon,
+	BrandWhatsappIcon,
+	BrandTwitterIcon,
+} from 'vue-tabler-icons';
+import { IShare } from '@/types/index';
+import { defineComponent } from 'vue';
+export default defineComponent({
+	components: {
+		ShareIcon,
+		BrandTelegramIcon,
+		BrandWhatsappIcon,
+		BrandTwitterIcon,
+	},
+	props: {
+		name: {
+			type: String,
+			required: true,
+		},
+	},
+	data() {
+		return {
+			shareList: <IShare[]>[
+				{ name: 'telegram' },
+				{ name: 'whatsapp' },
+				{ name: 'twitter' },
+			],
+			shareDescription: `Стихотворение : ${this.name}`,
+			shareQuote: '',
+			shareHashtags: 'стихотворение,проза,творчество,искусство',
+			shareURL: this.$siteHost + this.$route.fullPath,
+		};
+	},
+	methods: {
+		span(icon: String) {
+			return `<${icon}/>`;
+		},
+	},
+});
+</script>
+<style>
+.headerIcon {
+	margin-right: 5px;
+}
+.shareBlock {
+	margin-top: 20px;
+}
+.shareList {
+	list-style: none;
+}
+.shareList > li {
+	display: inline-block;
+}
+</style>

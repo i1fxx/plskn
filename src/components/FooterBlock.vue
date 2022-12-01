@@ -1,6 +1,8 @@
 <template>
 	<div class="botBlock">
-		<div>{{ this.$siteName }} &copy; {{ new Date().getFullYear() }}</div>
+		<ui-text>
+			{{ this.$siteName }} &copy; {{ new Date().getFullYear() }}
+		</ui-text>
 		<div class="linkBlock">
 			<a :href="'mailto:' + this.$adminEmail" class="mailLinkIcon"
 				><mail-icon
@@ -31,5 +33,6 @@ export default {
 .botBlock {
 	width: 100%;
 	text-align: center;
+	padding: 20px;
 }
 </style>

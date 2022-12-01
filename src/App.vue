@@ -1,6 +1,8 @@
 <template>
-	<nav-bar />
-	<router-view></router-view>
+	<nav-bar :logoVisible="logoStatus" :currentPage="this.$route.path" />
+	<div class="routerBlock">
+		<router-view @targetView="handlerTarget"></router-view>
+	</div>
 	<footer-block />
 </template>
 <script lang="ts">
@@ -20,6 +22,7 @@ export default defineComponent({
 				{ id: 2, title: 'Hello world! 1', body: 'Something 1' },
 				{ id: 3, title: 'Hello world! 2', body: 'Something 2' },
 			],
+			logoStatus: true,
 		};
 	},
 	methods: {
@@ -30,15 +33,25 @@ export default defineComponent({
 			let removeIndex = this.notes.findIndex((x) => x.id === note.id);
 			if (removeIndex != -1) this.notes.splice(removeIndex, 1);
 		},
+		handlerTarget(e) {
+			this.logoStatus = !e;
+		},
 	},
 	mounted() {},
 });
 </script>
 
 <style>
+.routerBlock {
+	padding-top: 124px;
+}
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+body {
+	max-width: 1200px;
+	margin: 0 auto;
 }
 </style>

@@ -1,0 +1,49 @@
+@font-face {
+	font-family: 'Montserrat';
+	src: local('Montserrat'),
+		url('~@/assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: auto;
+	unicode-range: U+000-5FF;
+}
+@font-face {
+	font-family: 'Merriweather';
+	src: local('Merriweather'),
+		url('~@/assets/fonts/Merriweather/Merriweather-Black.ttf')
+			format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: auto;
+	unicode-range: U+000-5FF;
+}
+@keyframes ui_show {
+	from {
+		opacity: 0;
+		visibility: hidden;
+		transition: 0.55s opacity, 0.55s visibility;
+	}
+	to {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+@keyframes ui_slide {
+	0% {
+		transform: translateY(-150%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+@keyframes jump {
+	0% {
+		transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+	}
+	40% {
+		transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+	}
+	100% {
+		transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+	}
+}

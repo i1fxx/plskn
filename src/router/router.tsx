@@ -1,7 +1,7 @@
 import AboutPage from '@/pages/AboutPage.vue';
-import MainPage from '@/pages/MainPage.vue';
+import MainPage from '@/pages/MainPage/MainPage.vue';
 import PoemPage from '@/pages/PoemPage.vue';
-import SinglePoemPage from '@/pages/SinglePoemPage.vue';
+import SinglePoemPage from '@/pages/SinglePoemPage/SinglePoemPage.vue';
 import SupportPage from '@/pages/SupportPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
