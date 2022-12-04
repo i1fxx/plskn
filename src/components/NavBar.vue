@@ -21,7 +21,7 @@
 						<router-link :to="link.href">
 							<span v-if="this.windowWidth > 475">{{ link.name }}</span>
 							<span v-else>
-								<list-icon v-if="link.icon === 'list-icon'" />
+								<align-box-left-middle-icon v-if="link.icon === 'list-icon'" />
 								<user-icon v-if="link.icon === 'user-icon'" />
 							</span>
 						</router-link>
@@ -33,12 +33,12 @@
 </template>
 <script lang="ts">
 import { ITabs } from '@/types/index';
-import { ListIcon, UserIcon } from 'vue-tabler-icons';
+import { AlignBoxLeftMiddleIcon, UserIcon } from 'vue-tabler-icons';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
 	components: {
-		ListIcon,
+		AlignBoxLeftMiddleIcon,
 		UserIcon,
 	},
 	props: {
@@ -55,7 +55,7 @@ export default defineComponent({
 	data() {
 		return {
 			navLinks: <ITabs[]>[
-				//{ name: 'Стихотворения', href: '/poem', icon: 'list-icon' },
+				{ name: 'Стихотворения', href: '/poem', icon: 'list-icon' },
 				{ name: 'Об авторе', href: '/about', icon: 'user-icon' },
 			],
 		};

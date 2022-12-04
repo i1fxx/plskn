@@ -1,8 +1,6 @@
 <template>
 	<ui-card class="supportCard">
-		<div>
-			<ui-header :size="3">Поддержка творчества</ui-header>
-		</div>
+		<ui-header :size="3">Поддержка творчества</ui-header>
 		<div class="textBlock">
 			<ui-text>
 				Как и любая другая творческая деятельность, "plskn.ru" нуждается в

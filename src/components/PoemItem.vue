@@ -23,6 +23,10 @@ export default {
 };
 </script>
 <style scoped>
+.poemTitle {
+	display: inline-block;
+	color: black;
+}
 .poemAdded {
 	display: inline-block !important;
 	float: right;
