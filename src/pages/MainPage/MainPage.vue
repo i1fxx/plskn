@@ -1,11 +1,6 @@
 <template>
-	<target-block
-		ref="targetBlock"
-		class="mainTarget"
-		@nextBlock="nextBlockHandler"
-	/>
-	<about-block id="mainAbout" v-show="true" class="mainAbout" />
-	<transition name="slide-fade"> </transition>
+	<target-block @nextBlock="nextBlockHandler" />
+	<about-block id="mainAbout" class="mainAbout" :windowWidth="windowWidth" />
 	<last-poems :poems="splicePoems" />
 </template>
 <script lang="ts">
@@ -14,20 +9,16 @@ import AboutBlock from './AboutBlock.vue';
 import LastPoems from './LastPoems.vue';
 import { IPoem } from '@/types/index';
 import { defineComponent } from 'vue';
-import { ref } from 'vue';
-import { useElementVisibility } from '@vueuse/core';
 import poems from '@/data/poems.json';
 export default defineComponent({
 	components: { TargetBlock, AboutBlock, LastPoems },
-	setup() {
-		let targetBlock = ref(null),
-			targetIsVisible = useElementVisibility(targetBlock);
-
-		return {
-			targetBlock,
-			targetIsVisible,
-		};
+	props: {
+		windowWidth: {
+			type: Number,
+			required: true,
+		},
 	},
+	setup() {},
 	data() {
 		return {
 			splicePoems: <IPoem[]>[],
@@ -40,13 +31,7 @@ export default defineComponent({
 		buffer = buffer.slice(0, 3);
 		this.splicePoems = buffer;
 	},
-	watch: {
-		targetIsVisible: {
-			handler() {
-				this.$emit('targetView', this.targetIsVisible);
-			},
-		},
-	},
+	watch: {},
 	methods: {
 		nextBlockHandler() {
 			let elem: any = document.getElementById('mainAbout');

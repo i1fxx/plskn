@@ -3,7 +3,9 @@
 		<ui-header :size="2">Последние публикации</ui-header>
 		<poem-list :poems="poems"></poem-list>
 
-		<ui-link :to="'/poem'">Остальные стихотворения</ui-link>
+		<ui-link :to="'/poem'" v-if="poems.length === 3"
+			>Остальные стихотворения</ui-link
+		>
 	</div>
 </template>
 <script lang="ts">
@@ -23,6 +25,5 @@ export default {
 	text-align: center;
 	width: 100%;
 	margin: 20px 0;
-	padding: 10px;
 }
 </style>

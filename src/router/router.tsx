@@ -2,33 +2,39 @@ import AboutPage from '@/pages/AboutPage.vue';
 import MainPage from '@/pages/MainPage/MainPage.vue';
 import PoemPage from '@/pages/PoemPage.vue';
 import SinglePoemPage from '@/pages/SinglePoemPage/SinglePoemPage.vue';
-import SupportPage from '@/pages/SupportPage.vue';
+import SupportPage from '@/pages/SupportPage/SupportPage.vue';
+import NotFound from '@/pages/NotFoundPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
 	{
 		path: '/',
-		name: 'Main Page',
+		name: 'Главная',
 		component: MainPage,
 	},
 	{
 		path: '/about',
-		name: 'About Page',
+		name: 'Об авторе',
 		component: AboutPage,
 	},
 	{
 		path: '/poem',
-		name: 'Poem Page',
+		name: 'Список стихотворений',
 		component: PoemPage,
 	},
 	{
 		path: '/poem/:id',
-		name: 'Single Poem Page',
+		name: 'Страница стихотворения',
 		component: SinglePoemPage,
 	},
 	{
 		path: '/support',
-		name: 'Support Page',
+		name: 'Поддержка',
 		component: SupportPage,
+	},
+	{
+		path: '/:pathMatch(.*)*',
+		name: 'Не найдено',
+		component: NotFound,
 	},
 ];
 const router = createRouter({

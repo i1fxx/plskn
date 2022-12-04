@@ -13,7 +13,7 @@
 				ситуацию, призваны к ответу. Принимая во внимание показатели успешности,
 				постоянное информационно-пропагандистское обеспечение нашей деятельности
 				в значительной степени обусловливает важность новых принципов
-				формирования материально-технической и кадровой базы.<ui-link
+				формирования материально-технической и кадровой базы.<br /><br /><ui-link
 					to="/about"
 				>
 					Подробнее об авторе
@@ -21,12 +21,23 @@
 			</ui-text>
 		</ui-column>
 		<ui-column :order="2" :xs="12" :md="6" :lg="6" class="photoPath">
-			<img src="https://via.placeholder.com/286x490" />
+			<img
+				src="@/assets/images/plskn/img3367.jpg"
+				:class="{
+					descImage: windowWidth > 769,
+				}"
+			/>
 		</ui-column>
 	</ui-row>
 </template>
 <script lang="ts">
 export default {
+	props: {
+		windowWidth: {
+			type: Number,
+			required: true,
+		},
+	},
 	data() {
 		return {};
 	},
@@ -36,15 +47,29 @@ export default {
 .textPath {
 	width: 100%;
 	max-width: 350px;
-	margin: 50px auto;
+	margin: 0 auto;
 	display: block;
-	padding: 10px;
+	padding: 45px;
 }
 .photoPath {
 	text-align: center;
 }
+.photoPath > img {
+	width: 100%;
+	max-width: 350px;
+}
+.descImage {
+	vertical-align: middle;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: auto;
+}
 .aboutBlock {
-	padding: 20px;
-	max-width: 100%;
+	max-width: 650px;
+	margin: 0 auto !important;
 }
 </style>

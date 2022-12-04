@@ -22,5 +22,6 @@ export default {
 	font-weight: 600;
 	display: inline-block;
 	color: black;
+	vertical-align: middle;
 }
 </style>

@@ -22,7 +22,7 @@ export default {
 </script>
 <style scoped>
 .poemsList {
-	margin: 20px auto;
+	margin: 0 auto;
 	max-width: 450px;
 	list-style: none;
 }

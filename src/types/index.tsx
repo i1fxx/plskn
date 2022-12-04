@@ -17,3 +17,12 @@ export interface IPoem {
 export interface IShare {
 	name: String;
 }
+interface IWallet {
+	name: String;
+	number: String;
+}
+export interface ISupport {
+	name: String;
+	disabled: Boolean;
+	wallets: IWallet[];
+}

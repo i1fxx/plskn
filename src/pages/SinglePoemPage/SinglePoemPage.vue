@@ -27,12 +27,13 @@ export default defineComponent({
 		let queryId = Number(this.$route.params.id),
 			poem = poems.find((x) => x.id === queryId);
 		if (poem) this.poem = poem;
+		else this.$router.push('/404');
 	},
 });
 </script>
 <style>
 .singlePoemCard {
-	margin: 20px auto;
+	margin: 0 auto;
 }
 .poemSubject {
 	margin-top: 20px;

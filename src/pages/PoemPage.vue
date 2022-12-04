@@ -13,7 +13,9 @@ export default {
 	},
 	data() {
 		return {
-			poemList: <IPoem[]>poems,
+			poemList: <IPoem[]>poems.sort((a, b) => {
+				return new Date(b.add_date).getTime() - new Date(a.add_date).getTime();
+			}),
 		};
 	},
 };
@@ -22,6 +24,5 @@ export default {
 .poemList {
 	max-width: 550px;
 	margin: 0 auto;
-	padding: 10px;
 }
 </style>

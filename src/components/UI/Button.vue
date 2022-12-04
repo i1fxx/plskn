@@ -4,29 +4,27 @@
 			linkButton: type === 'link',
 			secondaryButton: type === 'secondary',
 			iconButton: type === 'icon',
+			primaryButton: type === 'primary',
+			activeLinkButton: active,
 		}"
 	>
-		<router-link v-if="type === 'link'" :to="this.to">
-			<slot></slot>
-		</router-link>
-		<slot v-else></slot>
+		<slot></slot>
 	</button>
 </template>
 <script lang="ts">
 export default {
 	name: 'ui-button',
 	props: {
-		to: {
-			type: String,
-			required: false,
-		},
 		type: { type: String, required: true }, //type : link, primary, secondary, icon
+		active: { type: Boolean, required: false, default: false },
 	},
 };
 </script>
-<style scoped>
-.linkButton,
-.secondaryButton {
+<style>
+.activeLinkButton > a {
+	color: #334e67 !important;
+}
+.linkButton {
 	font-size: 1rem;
 	font-weight: 600;
 	cursor: pointer;
@@ -38,20 +36,35 @@ export default {
 	border: none;
 	background: none;
 }
-.linkButton > a {
+.linkButton > a,
+.iconButton > a {
 	text-decoration: none;
 	color: black;
 }
-.linkButton > a:hover {
-	border-bottom: 2.2px solid black;
-}
-.linkButton,
 .secondaryButton,
-.iconButton {
-	margin: 10px;
-	padding: 8px;
+.iconButton,
+.primaryButton {
+	padding: 5px;
 }
-.iconButton:hover {
+.primaryButton:hover,
+.secondaryButton:hover {
 	cursor: pointer;
+}
+.primaryButton {
+	background: #334e67;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-family: 'Montserrat';
+	font-size: 0.75rem;
+	height: 34px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.secondaryButton {
+	background: none;
+	border: 1px solid #767777;
+	border-radius: 5px;
+	font-size: 0.75rem;
+	font-family: 'Montserrat';
 }
 </style>

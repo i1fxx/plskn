@@ -1,47 +1,53 @@
 <template>
 	<div class="mainTopBlock">
-		<transition name="slide-fade">
-			<div
-				class="logoBlock"
-				v-if="
-					((currentPage === '/' && logoVisible) || currentPage != '/') &&
-					!loading
-				"
-			>
+		<ui-card class="navCard">
+			<div class="logoBlock">
 				<router-link to="/">
-					<img src="@/assets/images/logo.png" width="150" height="50" />
+					<img src="@/assets/images/logo.png" width="125" height="40" />
 				</router-link>
 			</div>
-		</transition>
-		<ul class="menuList">
-			<li v-for="link in navLinks">
-				<ui-button
-					:type="this.windowWidth > 330 ? 'link' : 'icon'"
-					:to="link.href"
-				>
-					{{ this.windowWidth > 330 ? link.name : '' }}
-				</ui-button>
-			</li>
-		</ul>
+			<ul
+				:class="{
+					menuList: true,
+					logoView: (currentPage === '/' && logoVisible) || currentPage != '/',
+				}"
+			>
+				<li v-for="link in navLinks">
+					<ui-button
+						:type="this.windowWidth > 475 ? 'link' : 'icon'"
+						:active="link.href === currentPage"
+						class="navButton"
+					>
+						<router-link :to="link.href">
+							<span v-if="this.windowWidth > 475">{{ link.name }}</span>
+							<span v-else>
+								<list-icon v-if="link.icon === 'list-icon'" />
+								<user-icon v-if="link.icon === 'user-icon'" />
+							</span>
+						</router-link>
+					</ui-button>
+				</li>
+			</ul>
+		</ui-card>
 	</div>
 </template>
 <script lang="ts">
 import { ITabs } from '@/types/index';
-import { ListIcon } from 'vue-tabler-icons';
+import { ListIcon, UserIcon } from 'vue-tabler-icons';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
 	components: {
 		ListIcon,
+		UserIcon,
 	},
 	props: {
-		logoVisible: {
-			type: Boolean,
-			required: false,
-			default: false,
-		},
 		currentPage: {
 			type: String,
+			required: true,
+		},
+		windowWidth: {
+			type: Number,
 			required: true,
 		},
 	},
@@ -52,57 +58,60 @@ export default defineComponent({
 				{ name: 'Стихотворения', href: '/poem', icon: 'list-icon' },
 				{ name: 'Об авторе', href: '/about', icon: 'user-icon' },
 			],
-			windowWidth: window.innerWidth,
-			loading: true,
 		};
-	},
-	methods: {
-		handleWindowResize(event) {
-			this.windowWidth = event.currentTarget.innerWidth;
-		},
-	},
-	beforeDestroy: function () {
-		window.removeEventListener('resize', this.handleWindowResize);
-	},
-	mounted() {
-		window.addEventListener('resize', this.handleWindowResize);
-		setTimeout(() => {
-			this.loading = false;
-		}, 666);
 	},
 });
 </script>
 <style scoped>
+.navCard {
+	max-width: 100% !important;
+	height: 60px;
+}
 .mainTopBlock {
 	text-align: center;
 	width: 100%;
-	padding-top: 15px;
+	max-width: 650px;
 	position: fixed;
 	z-index: 10000;
-	background: white;
+	padding: 0 15px 0 15px;
+	margin: 12px auto;
+	left: 0;
+	right: 0;
 }
 .menuList {
-	margin: 0;
+	float: right;
+	display: block;
 	padding: 0;
 	list-style: none;
+	height: 40px;
+}
+.logoView {
+	float: right;
 }
 .menuList li {
 	display: inline-block;
 }
 .menuList li:not(:first-child) {
-	margin-left: 15px;
+	margin-left: 20px;
 }
 .slide-fade-enter-active {
 	transition: all 0.3s ease-out;
 }
 
 .slide-fade-leave-active {
-	transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+	transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,
 .slide-fade-leave-to {
 	transform: translateY(-150%);
 	opacity: 0;
+}
+.logoBlock {
+	float: left;
+}
+.navButton {
+	height: 40px;
+	margin: 0;
 }
 </style>

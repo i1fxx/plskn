@@ -14,13 +14,13 @@
 				>
 					<ui-button type="icon">
 						<span v-if="share.name === 'telegram'">
-							<brand-telegram-icon :size="19" />
+							<brand-telegram-icon :size="23" />
 						</span>
 						<span v-if="share.name === 'whatsapp'">
-							<brand-whatsapp-icon :size="19" />
+							<brand-whatsapp-icon :size="23" />
 						</span>
 						<span v-if="share.name === 'twitter'">
-							<brand-twitter-icon :size="19" />
+							<brand-twitter-icon :size="23" />
 						</span>
 					</ui-button>
 				</ShareNetwork>
@@ -57,7 +57,7 @@ export default defineComponent({
 				{ name: 'whatsapp' },
 				{ name: 'twitter' },
 			],
-			shareDescription: `Стихотворение : ${this.name}`,
+			shareDescription: `Стихотворение "${this.name}"`,
 			shareQuote: '',
 			shareHashtags: 'стихотворение,проза,творчество,искусство',
 			shareURL: this.$siteHost + this.$route.fullPath,
@@ -73,6 +73,8 @@ export default defineComponent({
 <style>
 .headerIcon {
 	margin-right: 5px;
+	height: 19.2px;
+	float: left;
 }
 .shareBlock {
 	margin-top: 20px;

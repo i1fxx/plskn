@@ -28,7 +28,7 @@ export default {
 }
 .supportLink {
 	color: red;
-	margin-left: 8px;
+	margin-left: 15px;
 }
 .botBlock {
 	width: 100%;
