@@ -1,15 +1,17 @@
 <template>
-	<ui-header :size="4">
-		<wallet-icon size="18" class="walletIcon" />
-		Кошельки :
-	</ui-header>
-	<ul class="walletBlock">
-		<li v-for="wallet of supportType.wallets">
-			<ui-button type="primary" @click="copyHandler(wallet.number)">
-				{{ wallet.name }}
-			</ui-button>
-		</li>
-	</ul>
+	<div>
+		<ui-header :size="4">
+			<wallet-icon size="18" class="walletIcon" />
+			Кошельки :
+		</ui-header>
+		<ul class="walletBlock">
+			<li v-for="wallet of supportType.wallets">
+				<ui-button type="primary" @click="copyHandler(wallet)">
+					{{ wallet.name }}
+				</ui-button>
+			</li>
+		</ul>
+	</div>
 </template>
 <script lang="ts">
 import {
@@ -20,6 +22,10 @@ import {
 import { ISupport } from '@/types/index';
 import { defineComponent } from 'vue';
 import { copyText } from 'vue3-clipboard';
+interface IWallet {
+	name: String;
+	number: String;
+}
 export default defineComponent({
 	components: {
 		CurrencyBitcoinIcon,
@@ -46,12 +52,12 @@ export default defineComponent({
 		};
 	},
 	methods: {
-		copyHandler(number: string) {
-			copyText(number, undefined, (error, event) => {
+		copyHandler(wallet: IWallet) {
+			copyText(wallet.number, undefined, (error, event) => {
 				if (error) {
 					alert('Can not copy');
 				} else {
-					alert('Номер кошелька скопирован!');
+					alert(`${wallet.name} кошелек скопирован!`);
 				}
 			});
 		},

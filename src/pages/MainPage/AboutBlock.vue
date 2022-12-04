@@ -22,7 +22,7 @@
 		</ui-column>
 		<ui-column :order="2" :xs="12" :md="6" :lg="6" class="photoPath">
 			<img
-				src="@/assets/images/plskn/img3367.jpg"
+				src="@/assets/images/plskn/img3370.jpg"
 				:class="{
 					descImage: windowWidth > 769,
 				}"
@@ -46,17 +46,17 @@ export default {
 <style scoped>
 .textPath {
 	width: 100%;
-	max-width: 350px;
+	max-width: 350px !important;
 	margin: 0 auto;
 	display: block;
 	padding: 45px;
 }
 .photoPath {
 	text-align: center;
+	max-width: 350px !important;
 }
 .photoPath > img {
 	width: 100%;
-	max-width: 350px;
 }
 .descImage {
 	vertical-align: middle;
@@ -69,6 +69,7 @@ export default {
 	height: auto;
 }
 .aboutBlock {
+	width: 100% !important;
 	max-width: 650px;
 	margin: 0 auto !important;
 }

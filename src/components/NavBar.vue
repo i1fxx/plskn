@@ -55,7 +55,7 @@ export default defineComponent({
 	data() {
 		return {
 			navLinks: <ITabs[]>[
-				{ name: 'Стихотворения', href: '/poem', icon: 'list-icon' },
+				//{ name: 'Стихотворения', href: '/poem', icon: 'list-icon' },
 				{ name: 'Об авторе', href: '/about', icon: 'user-icon' },
 			],
 		};
