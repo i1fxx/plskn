@@ -13,19 +13,19 @@
 				}"
 			>
 				<li v-for="link in navLinks">
-					<ui-button
-						:type="this.windowWidth > 475 ? 'link' : 'icon'"
-						:active="link.href === currentPage"
-						class="navButton"
-					>
-						<router-link :to="link.href">
+					<router-link :to="link.href">
+						<ui-button
+							:type="this.windowWidth > 475 ? 'link' : 'icon'"
+							:active="link.href === currentPage"
+							class="navButton"
+						>
 							<span v-if="this.windowWidth > 475">{{ link.name }}</span>
 							<span v-else>
 								<align-box-left-middle-icon v-if="link.icon === 'list-icon'" />
 								<user-icon v-if="link.icon === 'user-icon'" />
 							</span>
-						</router-link>
-					</ui-button>
+						</ui-button>
+					</router-link>
 				</li>
 			</ul>
 		</ui-card>
@@ -73,7 +73,7 @@ export default defineComponent({
 	max-width: 650px;
 	position: fixed;
 	z-index: 10000;
-	padding: 0 15px 0 15px;
+	padding: 0 12px 0 12px;
 	margin: 12px auto;
 	left: 0;
 	right: 0;

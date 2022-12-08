@@ -1,10 +1,10 @@
 <template>
-	<div>
+	<div class="walletBlock">
 		<ui-header :size="4">
 			<wallet-icon size="18" class="walletIcon" />
-			Кошельки :
+			Кошельки:
 		</ui-header>
-		<ul class="walletBlock">
+		<ul class="walletList">
 			<li v-for="wallet of supportType.wallets">
 				<ui-button type="primary" @click="copyHandler(wallet)">
 					{{ wallet.name }}
@@ -66,14 +66,17 @@ export default defineComponent({
 </script>
 <style scoped>
 .walletBlock {
+	margin-top: 15px;
+}
+.walletList {
 	list-style: none;
 	display: inline;
 }
-.walletBlock > li {
+.walletList > li {
 	display: inline-block;
 	margin: 10px;
 }
-.walletBlock > li:not(:first-child) {
+.walletList > li:not(:first-child) {
 	margin-left: 5px;
 }
 .walletIcon {

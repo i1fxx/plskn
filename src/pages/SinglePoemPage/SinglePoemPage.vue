@@ -24,7 +24,7 @@ export default defineComponent({
 		};
 	},
 	mounted() {
-		let queryId = Number(this.$route.params.id),
+		let queryId = this.$route.params.id,
 			poem = poems.find((x) => x.id === queryId);
 		if (poem) this.poem = poem;
 		else this.$router.push('/404');

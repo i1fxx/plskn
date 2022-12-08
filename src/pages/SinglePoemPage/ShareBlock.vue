@@ -83,6 +83,7 @@ export default defineComponent({
 	list-style: none;
 }
 .shareList > li {
+	margin: 5px;
 	display: inline-block;
 }
 </style>

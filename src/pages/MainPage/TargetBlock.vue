@@ -9,22 +9,37 @@
 </template>
 <script lang="ts">
 import { ArrowNarrowDownIcon } from 'vue-tabler-icons';
-export default {
+import { defineComponent } from 'vue';
+export default defineComponent({
 	components: {
 		ArrowNarrowDownIcon,
 	},
 	data() {
-		return {};
+		return {
+			scrolledMark: false,
+		};
 	},
 	mounted() {
 		setTimeout(() => {
-			if (document.body.scrollTop === 0) {
+			if (window?.top?.scrollY === 0 && !this.scrolledMark) {
 				let elem: any = document.getElementById('arrowButton');
 				if (elem) elem.classList.add('targetArrow');
 			}
 		}, 10000);
 	},
-};
+	methods: {
+		handleScroll() {
+			if (window?.top?.scrollY && window?.top?.scrollY > 0)
+				this.scrolledMark = true;
+		},
+	},
+	created() {
+		window.addEventListener('scroll', this.handleScroll);
+	},
+	destroyed() {
+		window.removeEventListener('scroll', this.handleScroll);
+	},
+});
 </script>
 <style scoped>
 .targetArrow {

@@ -9,7 +9,7 @@ export interface ITabs {
 	icon: any;
 }
 export interface IPoem {
-	id: number;
+	id: string;
 	title: string;
 	body: string;
 	add_date: string;

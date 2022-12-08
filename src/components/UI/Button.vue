@@ -46,6 +46,7 @@ export default {
 .primaryButton {
 	padding: 5px;
 }
+.iconButton:hover,
 .primaryButton:hover,
 .secondaryButton:hover {
 	cursor: pointer;
@@ -57,9 +58,15 @@ export default {
 	border-radius: 5px;
 	font-family: 'Montserrat';
 	font-size: 0.75rem;
-	height: 34px;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+.primaryButton:hover {
+	background-color: #002ead;
+	transition: 0.7s;
+}
+/*.primaryButton:active {
+	background-color: #ffbf00;
+}*/
 .secondaryButton {
 	background: none;
 	border: 1px solid #767777;

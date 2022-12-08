@@ -50,6 +50,7 @@ export default {
 }
 .photoPath > img {
 	width: 100%;
+	border-radius: 5px;
 }
 .descImage {
 	vertical-align: middle;
