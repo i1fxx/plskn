@@ -34,10 +34,10 @@ export default defineComponent({
 	watch: {},
 	methods: {
 		nextBlockHandler() {
-			let elem: any = document.getElementById('mainAbout');
-			elem.scrollIntoView({
-				behavior: 'smooth',
-			});
+			let elem: any = document.getElementById('mainAbout'),
+				yOffset = -45,
+				y = elem.getBoundingClientRect().top + window.pageYOffset + yOffset;
+			window.scrollTo({ top: y, behavior: 'smooth' });
 		},
 	},
 });

@@ -36,6 +36,6 @@ export default defineComponent({
 	margin: 0 auto;
 }
 .poemSubject {
-	margin-top: 20px;
+	margin-top: 7.5px;
 }
 </style>

@@ -35,4 +35,7 @@ export default {
 .commentoBlock {
 	margin-top: 18px;
 }
+.commentsBlock {
+	margin-top: 10px;
+}
 </style>

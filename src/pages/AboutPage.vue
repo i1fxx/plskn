@@ -2,25 +2,7 @@
 	<ui-card class="aboutPageMainCard">
 		<div class="textPath">
 			<ui-header :size="4"> Детство 1959 г. – 1977 г. </ui-header>
-			<div class="imagesPath">
-				<Carousel>
-					<Slide v-for="photo in childsPhotos" :key="photo">
-						<div
-							class="carouselItem"
-							:style="{
-								background:
-									'url(' +
-									require('@/assets/images' + photo) +
-									') no-repeat center center fixed',
-							}"
-						/>
-					</Slide>
-
-					<template #addons>
-						<Pagination />
-					</template>
-				</Carousel>
-			</div>
+			<carousel-block :images="childsPhotos" />
 			<ui-text>
 				Поэт современного времени, Поваляев Александр Александрович, под
 				творческим псевдонимом ПЛЯСКИН родился 15 сентября 1959 года в
@@ -37,25 +19,7 @@
 			</ui-text>
 			<br /><br />
 			<ui-header :size="4"> Армия 1977 г. - 1979 г. </ui-header>
-			<div class="imagesPath">
-				<Carousel>
-					<Slide v-for="photo in armyPhotos" :key="photo">
-						<div
-							class="carouselItem"
-							:style="{
-								background:
-									'url(' +
-									require('@/assets/images' + photo) +
-									') no-repeat center center fixed',
-							}"
-						/>
-					</Slide>
-
-					<template #addons>
-						<Pagination />
-					</template>
-				</Carousel>
-			</div>
+			<carousel-block :images="armyPhotos" />
 			<ui-text>
 				После окончания школы проходил армейскую службу в танковых войсках в ГДР
 				(город Дрезден) где получил специальность водитель-механик. Во время
@@ -73,25 +37,7 @@
 			<ui-header :size="4">
 				Октяборьская железная дорога 1980 г. – 2007 г.
 			</ui-header>
-			<div class="imagesPath">
-				<Carousel>
-					<Slide v-for="photo in railWayPhotos" :key="photo">
-						<div
-							class="carouselItem"
-							:style="{
-								background:
-									'url(' +
-									require('@/assets/images' + photo) +
-									') no-repeat center center fixed',
-							}"
-						/>
-					</Slide>
-
-					<template #addons>
-						<Pagination />
-					</template>
-				</Carousel>
-			</div>
+			<carousel-block :images="railWayPhotos" />
 			<ui-text>
 				Более 25 лет отработал в Рефрижераторном Депо «Предпортовая» Октябрьской
 				железной дороги. За эти годы объехал весь Советский Союз. Стихи, в
@@ -133,10 +79,12 @@
 	</ui-card>
 </template>
 <script lang="ts">
-import 'vue3-carousel/dist/carousel.css';
+import CarouselBlock from '@/components/CarouselBlock.vue';
 import { defineComponent } from 'vue';
-import { Carousel, Slide, Pagination } from 'vue3-carousel';
 export default defineComponent({
+	components: {
+		CarouselBlock,
+	},
 	data() {
 		return {
 			childsPhotos: ['/plskn/img3379.jpg', '/plskn/img3381.jpg'],
@@ -147,7 +95,6 @@ export default defineComponent({
 				'/plskn/img3372.jpg',
 				'/plskn/img3370.jpg',
 			],
-			currentSlide: 0,
 		};
 	},
 	props: {
@@ -155,11 +102,6 @@ export default defineComponent({
 			type: Number,
 			required: true,
 		},
-	},
-	components: {
-		Carousel,
-		Slide,
-		Pagination,
 	},
 	methods: {
 		slideTo(val) {
@@ -177,41 +119,18 @@ export default defineComponent({
 	padding: 10px;
 	margin: -10px;
 	width: calc(100% + 20px);
-	max-width: 550px;
+	max-width: 626px;
 }
 .aboutPageMainCard {
 	margin: 0 auto;
-	max-width: 550px;
+	max-width: 626px;
 }
-.imagesPath,
 .textPath {
 	width: 100%;
 	max-width: 550px;
 }
 .textPath {
 	margin: 30px auto;
-}
-.imagesPath {
-	margin: 0 auto;
-}
-.carousel__slide {
-	padding: 10px;
-}
-.carouselItem,
-.secondCarouselItem {
-	background-size: cover !important;
-	width: 100%;
-	border-radius: 8px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.carouselItem {
-	height: 450px;
-	max-width: 550px;
-}
-.secondCarouselItem {
-	height: 75px;
 }
 
 .textPath {

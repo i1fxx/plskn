@@ -1,3 +1,16 @@
+.routerBlock {
+	padding: 100px 12px 0 12px;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
 @font-face {
 	font-family: 'Montserrat';
 	font-weight: 400;
@@ -8,25 +21,7 @@
 		url('~@/assets/fonts/Montserrat/Montserrat-Regular.woff2') format('woff2');
 	/*url('/fonts/Montserrat-Regular.woff2') format('woff');*/
 }
-@keyframes ui_show {
-	from {
-		opacity: 0;
-		visibility: hidden;
-		transition: 0.55s opacity, 0.55s visibility;
-	}
-	to {
-		opacity: 1;
-		visibility: visible;
-	}
-}
-@keyframes ui_slide {
-	0% {
-		transform: translateY(-150%);
-	}
-	100% {
-		transform: translateY(0);
-	}
-}
+
 @keyframes bounce {
 	0% {
 		transform: scale(1, 1) translateY(0);

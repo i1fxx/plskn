@@ -25,7 +25,7 @@ export default {
 	color: #334e67 !important;
 }
 .linkButton {
-	font-size: 1rem;
+	font-size: 0.85rem;
 	font-weight: 600;
 	cursor: pointer;
 	font-family: 'Montserrat';
@@ -67,6 +67,9 @@ export default {
 /*.primaryButton:active {
 	background-color: #ffbf00;
 }*/
+.iconButton:hover {
+	color: #334e67 !important;
+}
 .secondaryButton {
 	background: none;
 	border: 1px solid #767777;

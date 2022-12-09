@@ -6,26 +6,21 @@
 					<img src="@/assets/images/logo.png" width="125" height="40" />
 				</router-link>
 			</div>
-			<ul
-				:class="{
-					menuList: true,
-					logoView: (currentPage === '/' && logoVisible) || currentPage != '/',
-				}"
-			>
+			<ul class="menuList">
 				<li v-for="link in navLinks">
-					<router-link :to="link.href">
-						<ui-button
-							:type="this.windowWidth > 475 ? 'link' : 'icon'"
-							:active="link.href === currentPage"
-							class="navButton"
-						>
+					<ui-button
+						:type="this.windowWidth > 475 ? 'link' : 'icon'"
+						:active="link.href === this.$route.path"
+						class="navButton"
+					>
+						<router-link :to="link.href">
 							<span v-if="this.windowWidth > 475">{{ link.name }}</span>
 							<span v-else>
 								<align-box-left-middle-icon v-if="link.icon === 'list-icon'" />
 								<user-icon v-if="link.icon === 'user-icon'" />
 							</span>
-						</ui-button>
-					</router-link>
+						</router-link>
+					</ui-button>
 				</li>
 			</ul>
 		</ui-card>
@@ -42,10 +37,6 @@ export default defineComponent({
 		UserIcon,
 	},
 	props: {
-		currentPage: {
-			type: String,
-			required: true,
-		},
 		windowWidth: {
 			type: Number,
 			required: true,
@@ -90,6 +81,7 @@ export default defineComponent({
 }
 .menuList li {
 	display: inline-block;
+	line-height: 40px;
 }
 .menuList li:not(:first-child) {
 	margin-left: 20px;
@@ -111,7 +103,6 @@ export default defineComponent({
 	float: left;
 }
 .navButton {
-	height: 40px;
 	margin: 0;
 }
 </style>
