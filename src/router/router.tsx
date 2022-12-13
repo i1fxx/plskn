@@ -41,5 +41,9 @@ const router = createRouter({
 	routes,
 	history: createWebHistory(process.env.BASE_URL),
 });
-
+router.beforeEach((to, from, next) => {
+	document.title = `Пляскин - ${to.name as string}`;
+	window.scrollTo(0, 0);
+	next();
+});
 export default router;

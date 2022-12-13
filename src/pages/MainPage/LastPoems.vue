@@ -10,11 +10,13 @@
 </template>
 <script lang="ts">
 import PoemList from '@/components/PoemList.vue';
+import { PropType } from 'vue';
+import { IPoem } from '@/types/index';
 export default {
 	components: { PoemList },
 	props: {
 		poems: {
-			type: Array,
+			type: Array as PropType<IPoem[]>,
 			required: true,
 		},
 	},

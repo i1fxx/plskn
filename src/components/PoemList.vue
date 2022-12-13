@@ -9,11 +9,13 @@
 </template>
 <script lang="ts">
 import PoemItem from '@/components/PoemItem.vue';
+import { PropType } from 'vue';
+import { IPoem } from '@/types/index';
 export default {
 	components: { PoemItem },
 	props: {
 		poems: {
-			type: Array,
+			type: Array as PropType<IPoem[]>,
 			required: true,
 		},
 	},

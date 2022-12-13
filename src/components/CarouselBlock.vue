@@ -22,6 +22,7 @@
 <script lang="ts">
 import { Carousel, Slide, Pagination } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
+import { PropType } from 'vue';
 export default {
 	components: {
 		Carousel,
@@ -30,7 +31,7 @@ export default {
 	},
 	props: {
 		images: {
-			type: Array,
+			type: Array as PropType<string[]>,
 			required: true,
 		},
 	},

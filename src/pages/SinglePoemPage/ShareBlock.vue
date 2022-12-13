@@ -13,6 +13,9 @@
 					:hashtags="this.shareHashtags"
 				>
 					<ui-button type="icon">
+						<span v-if="share.name === 'vk'">
+							<brand-vk-icon :size="23" />
+						</span>
 						<span v-if="share.name === 'telegram'">
 							<brand-telegram-icon :size="23" />
 						</span>
@@ -34,6 +37,7 @@ import {
 	BrandTelegramIcon,
 	BrandWhatsappIcon,
 	BrandTwitterIcon,
+	BrandVkIcon,
 } from 'vue-tabler-icons';
 import { IShare } from '@/types/index';
 import { defineComponent } from 'vue';
@@ -43,6 +47,7 @@ export default defineComponent({
 		BrandTelegramIcon,
 		BrandWhatsappIcon,
 		BrandTwitterIcon,
+		BrandVkIcon,
 	},
 	props: {
 		name: {
@@ -53,6 +58,7 @@ export default defineComponent({
 	data() {
 		return {
 			shareList: <IShare[]>[
+				{ name: 'vk' },
 				{ name: 'telegram' },
 				{ name: 'whatsapp' },
 				{ name: 'twitter' },

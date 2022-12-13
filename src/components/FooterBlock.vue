@@ -63,7 +63,7 @@ export default defineComponent({
 		return {
 			socialLinks: [
 				{ name: 'vk', link: 'https://vk.com/plskn_poet' },
-				{ name: 'stihi', link: 'https://stihi.ru/avtor/plskn' },
+				//{ name: 'stihi', link: 'https://stihi.ru/avtor/plskn' },
 				{ name: 'tiktok', link: 'https://tiktok.com/@plskn_poet' },
 			],
 			contactLinks: [{ name: 'mail', link: 'mailto:' + this.$adminEmail }],
