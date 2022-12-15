@@ -3,7 +3,7 @@
 		<div class="textPath">
 			<ui-header :size="4"> Детство 1959 г. – 1977 г. </ui-header>
 			<carousel-block :images="childsPhotos" />
-			<ui-text>
+			<ui-text type="serif">
 				Поэт современного времени, Поваляев Александр Александрович, под
 				творческим псевдонимом ПЛЯСКИН родился 15 сентября 1959 года в
 				Ленинграде на Моховой улице. С раннего детства летние месяцы проводил в
@@ -20,7 +20,7 @@
 			<br /><br />
 			<ui-header :size="4"> Армия 1977 г. - 1979 г. </ui-header>
 			<carousel-block :images="armyPhotos" />
-			<ui-text>
+			<ui-text type="serif">
 				После окончания школы проходил армейскую службу в танковых войсках в ГДР
 				(город Дрезден) где получил специальность водитель-механик. Во время
 				службы в армии также происходили много значимые события, которые
@@ -28,7 +28,7 @@
 			</ui-text>
 			<br /><br />
 			<ui-header :size="4"> Образование 1983 г. – 1987 г. </ui-header>
-			<ui-text>
+			<ui-text type="serif">
 				В 1983 году поступил в Ленинградский механический техникум
 				железнодорожного транспорта, который закончил в 1987 году и получил ещё
 				специальности техника-электромеханика, механика рефрижераторных секций.
@@ -38,7 +38,7 @@
 				Октяборьская железная дорога 1980 г. – 2007 г.
 			</ui-header>
 			<carousel-block :images="railWayPhotos" />
-			<ui-text>
+			<ui-text type="serif">
 				Более 25 лет отработал в Рефрижераторном Депо «Предпортовая» Октябрьской
 				железной дороги. За эти годы объехал весь Советский Союз. Стихи, в
 				основном, были написаны во время длительных командировок.
@@ -47,7 +47,7 @@
 			</ui-text>
 			<br /><br />
 			<ui-header :size="4"> Трудовая деятельность 2007 г. – 2018 г. </ui-header>
-			<ui-text>
+			<ui-text type="serif">
 				После службы на железной дороге осуществлял трудовую деятельность в
 				качестве рефрижераторщик, специалиста по обслуживанию кондиционеров и
 				вентиляции на историко-социально значимых объектах, таких как:
@@ -55,7 +55,7 @@
 			</ui-text>
 			<br /><br />
 			<ui-header :size="4"> Последние годы 2018 г. – 2022 г. </ui-header>
-			<ui-text>
+			<ui-text type="serif">
 				Последние годы Пляскин провел на пенсии, находился в Санкт-Петербурге, в
 				кругу семи и близких. В Сентябре 2022 года, в связи с осложнением
 				болезни, был госпитализирован в городскую больницу Святого Георгия.
@@ -72,7 +72,14 @@
 					>
 				</ui-column>
 				<ui-column :xs="12" :sm="6" :md="6" :lg="6" :xl="6">
-					<div><img src="@/assets/images/dove.png" width="75" /></div>
+					<div>
+						<img
+							src="@/assets/images/dove.png"
+							width="75"
+							height="75"
+							alt="dove"
+						/>
+					</div>
 				</ui-column>
 			</ui-row>
 		</div>
@@ -87,13 +94,13 @@ export default defineComponent({
 	},
 	data() {
 		return {
-			childsPhotos: ['/plskn/img3379.jpg', '/plskn/img3381.jpg'],
-			armyPhotos: ['/plskn/img3382.jpg', '/photo_2022-12-07_01-26-22.jpg'],
+			childsPhotos: ['/plskn/img3379.webp', '/plskn/img3381.webp'],
+			armyPhotos: ['/plskn/img3382.webp', '/photo_2022-12-07_01-26-22.webp'],
 			railWayPhotos: [
-				'/plskn/img3367.jpg',
-				'/plskn/img3369.jpg',
-				'/plskn/img3372.jpg',
-				'/plskn/img3370.jpg',
+				'/plskn/img3367.webp',
+				'/plskn/img3369.webp',
+				'/plskn/img3372.webp',
+				'/plskn/img3370.webp',
 			],
 		};
 	},
@@ -119,21 +126,15 @@ export default defineComponent({
 	padding: 10px;
 	margin: -10px;
 	width: calc(100% + 20px);
-	max-width: 626px;
+	max-width: 400px;
 }
 .aboutPageMainCard {
 	margin: 0 auto;
-	max-width: 626px;
+	max-width: 400px;
 }
 .textPath {
 	width: 100%;
-	max-width: 550px;
-}
-.textPath {
-	margin: 30px auto;
-}
-
-.textPath {
 	max-width: 350px;
+	margin: 0 auto;
 }
 </style>

@@ -50,7 +50,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .defaultHeader {
-	font-family: 'Montserrat';
+	font-family: 'MontserratRegular';
 	font-weight: 600;
 	display: inline-block;
 	vertical-align: middle;

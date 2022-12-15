@@ -3,7 +3,12 @@
 		<ui-card class="navCard">
 			<div class="logoBlock">
 				<router-link to="/">
-					<img src="@/assets/images/logo.png" width="125" height="40" />
+					<img
+						src="@/assets/images/logo.png"
+						width="125"
+						height="44"
+						alt="site logo"
+					/>
 				</router-link>
 			</div>
 			<ul class="menuList">
@@ -55,8 +60,9 @@ export default defineComponent({
 </script>
 <style scoped>
 .navCard {
-	max-width: 100% !important;
+	max-width: 400px !important;
 	height: 60px;
+	margin: 0 auto;
 }
 .mainTopBlock {
 	text-align: center;

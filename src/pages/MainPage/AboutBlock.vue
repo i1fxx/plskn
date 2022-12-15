@@ -14,7 +14,7 @@
 		</ui-column>
 		<ui-column :order="2" :xs="12" :md="6" :lg="6" class="photoPath">
 			<img
-				src="@/assets/images/plskn/img3370.jpg"
+				src="@/assets/images/plskn/img3370.webp"
 				:class="{
 					descImage: windowWidth > 769,
 				}"

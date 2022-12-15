@@ -16,7 +16,7 @@ export default {
 </script>
 <style scoped>
 .linkText {
-	font-family: 'Montserrat';
+	font-family: 'MontserratRegular';
 	font-size: 0.85rem;
 	text-decoration: none;
 	color: #0044cc;

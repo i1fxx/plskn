@@ -2,14 +2,10 @@
 	<div class="imagesPath">
 		<Carousel>
 			<Slide v-for="photo in images" :key="photo">
-				<div
-					class="carouselItem"
-					:style="{
-						background:
-							'url(' +
-							require('@/assets/images' + photo) +
-							') no-repeat center center fixed',
-					}"
+				<v-lazy-image
+					:src="require('@/assets/images' + photo)"
+					width="350"
+					height="550"
 				/>
 			</Slide>
 
@@ -21,13 +17,15 @@
 </template>
 <script lang="ts">
 import { Carousel, Slide, Pagination } from 'vue3-carousel';
-import 'vue3-carousel/dist/carousel.css';
 import { PropType } from 'vue';
+import VLazyImage from 'v-lazy-image';
+import 'vue3-carousel/dist/carousel.css';
 export default {
 	components: {
 		Carousel,
 		Slide,
 		Pagination,
+		VLazyImage,
 	},
 	props: {
 		images: {

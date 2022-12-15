@@ -28,7 +28,7 @@ export default {
 	font-size: 0.85rem;
 	font-weight: 600;
 	cursor: pointer;
-	font-family: 'Montserrat';
+	font-family: 'MontserratRegular';
 }
 .linkButton,
 .secondaryButton,
@@ -56,7 +56,7 @@ export default {
 	color: white;
 	border: none;
 	border-radius: 5px;
-	font-family: 'Montserrat';
+	font-family: 'MontserratRegular';
 	font-size: 0.75rem;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -75,6 +75,6 @@ export default {
 	border: 1px solid #767777;
 	border-radius: 5px;
 	font-size: 0.75rem;
-	font-family: 'Montserrat';
+	font-family: 'MontserratRegular';
 }
 </style>

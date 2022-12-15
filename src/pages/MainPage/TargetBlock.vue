@@ -50,7 +50,7 @@ export default defineComponent({
 	animation-iteration-count: 3;
 }
 .targetBlockMain {
-	background-image: url('@/assets/images/logo.png');
+	background-image: url('@/assets/images/targetBackgroundBlue.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;

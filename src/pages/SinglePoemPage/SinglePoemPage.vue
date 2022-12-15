@@ -2,7 +2,7 @@
 	<ui-card class="singlePoemCard">
 		<ui-header :size="2">{{ poem.title }}</ui-header>
 		<div v-if="poem.body" class="poemSubject">
-			<ui-text>
+			<ui-text type="serif">
 				<span v-html="poem.body.replaceAll('\\n', '<br/>')"></span>
 			</ui-text>
 			<share-block :name="poem.title" />

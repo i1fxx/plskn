@@ -25,11 +25,7 @@ export default defineComponent({
 		};
 	},
 	mounted() {
-		let buffer = poems.sort((a, b) => {
-			return new Date(b.add_date).getTime() - new Date(a.add_date).getTime();
-		});
-		buffer = buffer.slice(0, 3);
-		this.splicePoems = buffer;
+		this.splicePoems = this.$poemsList.slice(0, 3);;
 	},
 	watch: {},
 	methods: {

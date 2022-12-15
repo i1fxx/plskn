@@ -3,7 +3,7 @@
 		<ui-header :size="4" :elipsHeader="true" class="poemTitle">{{
 			poem.title
 		}}</ui-header>
-		<ui-text class="poemAdded">
+		<ui-text class="poemAdded" type="light">
 			{{ getDate(poem.add_date) }}
 		</ui-text>
 	</ui-card>

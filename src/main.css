@@ -12,14 +12,33 @@ body {
 }
 
 @font-face {
-	font-family: 'Montserrat';
-	font-weight: 400;
+	font-family: 'MontserratRegular';
+	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 	unicode-range: U+000-5FF;
-	src: local('Montserrat'),
-		url('~@/assets/fonts/Montserrat/Montserrat-Regular.woff2') format('woff2');
+	src: url('~@/assets/fonts/Montserrat/Montserrat-Regular.woff2')
+		format('woff2');
 	/*url('/fonts/Montserrat-Regular.woff2') format('woff');*/
+}
+
+@font-face {
+	font-family: 'MontserratLight';
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+000-5FF;
+	src: url('~@/assets/fonts/Montserrat/Montserrat-Light.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'MerriweatherRegular';
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+000-5FF;
+	src: url('~@/assets/fonts/Merriweather/Merriweather-Regular.woff2')
+		format('woff2');
 }
 
 @keyframes bounce {
