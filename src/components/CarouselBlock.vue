@@ -6,6 +6,7 @@
 					:src="require('@/assets/images' + photo)"
 					width="350"
 					height="550"
+					class="carouselImage"
 				/>
 			</Slide>
 
@@ -36,6 +37,9 @@ export default {
 };
 </script>
 <style>
+.carouselImage {
+	object-fit: cover;
+}
 .imagesPath {
 	width: 100%;
 	max-width: 550px;
